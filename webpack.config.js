@@ -4,7 +4,7 @@ module.exports = function(env) {
         path = require('path'),
         ExtractTextPlugin = require("extract-text-webpack-plugin"),
         HtmlWebpackPlugin = require('html-webpack-plugin'),
-        extractCSS = new ExtractTextPlugin({ filename: '[name].bundle.css'}),
+        extractCSS = new ExtractTextPlugin({ filename: '[name].css'}),
         plugins = [
             new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor'] }),
             extractCSS,
@@ -40,6 +40,13 @@ module.exports = function(env) {
                     test: /\.jsx$/,
                     exclude: /bower_components/,
                     loader: 'babel-loader', 
+                },
+                {
+                    test: /(\.less|\.css)$/,
+                    loader: extractCSS.extract({
+                        fallback: 'style-loader',
+                        use: ["css-loader", "less-loader"]
+                    })
                 },
                 {
                     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
