@@ -1,20 +1,23 @@
 import React from 'react'
 import Card from "./card"
 import Deck from "./deck"
+import DeckService from "../services/deckService"
 
 export default class Player extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = { 
-            deck: new Deck(),
+            deck: DeckService.getNewDeck(),
             cards: []
         }
     }
 
     componentDidMount() {
+        let aux = DeckService.drawCards(this.state.deck, 4)
         this.setState({ 
-            cards: this.state.deck.drawCards(4)
+            cards: aux.cards,
+            deck: aux.deck
         })
     }
 
@@ -25,6 +28,7 @@ export default class Player extends React.Component {
                 { this.state.cards.map( card =>
                     <Card card={ card } key={ card.number + card.suit }/>
                 )}
+                <Deck deck={ this.state.deck } />
             </div>
         )
     }

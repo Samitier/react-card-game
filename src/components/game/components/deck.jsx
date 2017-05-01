@@ -1,37 +1,23 @@
-export const numbers = [ "2","3","4","5","6","7","8","9","10","J","Q","K","A" ]
-export const suits = [ "clubs","spades","hearts","diamonds" ]
+import React from 'react'
+import Card from "./card"
+import DeckService from "../services/deckService"
 
-export default class Deck {
+export default class Deck extends React.Component {
 
-    constructor() {
-        this.init()
+    constructor(props) {
+        super(props)
     }
 
-    init () {
-        this.setDefaultCards()
-        this.shuffle()
+    componentDidMount() {
     }
 
-    setDefaultCards() {
-        this.cards = []
-        for (let suit of suits) {
-            for(let number of numbers) {
-                this.cards.push({ number, suit })
-            }
-        }
-    }
-
-    shuffle () {
-        for (let i = this.cards.length - 1; i > 0; i--) {
-            let j = Math.floor( Math.random() * (i + 1) ),
-                tmp = this.cards[i]
-            this.cards[i] = this.cards[j]
-            this.cards[j] = tmp
-        }
-    }
-
-    drawCards(n) {
-        if( n > this.cards.length ) n = this.cards.length
-        return this.cards.splice(0, n)
+    render() {
+        return (
+            <div className="deck-component">
+                { this.props.deck.length > 0 &&
+                    <Card card={ this.props.deck[0] } isUpsideDown={ true } />
+                }
+            </div>
+        )
     }
 }

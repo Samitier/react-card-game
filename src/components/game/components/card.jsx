@@ -1,5 +1,5 @@
 import React from "react"
-import { suits } from "./deck"
+import { suits } from "../services/deckService"
 
 // this icons are the chars of the current used font and 
 // equal to mushroom, coin, heart & circle chars (in order)
@@ -23,10 +23,15 @@ export default class Card extends React.Component {
     render() {
         return (
             <div className="card-component">
-                { this.props.card.number } &nbsp;
-                <span className={ this.getSuitClass(this.props.card.suit) }>
-                    { this.getSuitIcon(this.props.card.suit) }
-                </span>
+                { this.props.isUpsideDown 
+                    ?   <div className="card-back" />
+                    :   <div>
+                            { this.props.card.number } &nbsp;
+                            <span className={ this.getSuitClass(this.props.card.suit) }>
+                                { this.getSuitIcon(this.props.card.suit) }
+                            </span>
+                        </div>
+                }
             </div>
         )
     }

@@ -5,9 +5,9 @@ import {
   Route,
 } from 'react-router-dom'
 
-import Game from "./game/game"
-import GameInfo from "./game-info"
-import MainMenu from "./main-menu"
+import Game from "./components/game/game"
+import GameInfo from "./components/game-info"
+import MainMenu from "./components/main-menu"
 
 export default class App extends React.Component {
     render() {
