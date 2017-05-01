@@ -1,0 +1,22 @@
+.card-component {
+
+    @card-size: 80px;
+    @font-size: 15px;
+
+    .ui-box;
+    display: inline-block;
+    text-align: center;
+
+    width: @card-size;
+    height: @card-size;
+    font-size: @font-size;
+    line-height: @card-size / 2;
+    white-space: nowrap;
+
+    // fix for the misaligned heart icon
+    .suit-heart {
+        position: relative;
+        top: -2px;
+        left: -2px;
+    }
+}

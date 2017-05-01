@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom'
 
-import GameBoard from "./game-board"
+import Game from "./game/game"
 import GameInfo from "./game-info"
 import MainMenu from "./main-menu"
 
@@ -16,7 +16,7 @@ export default class App extends React.Component {
                 <Router>
                     <div>
                         <Route exact path="/" component={ MainMenu }/>
-                        <Route path="/game" component={ GameBoard }/>
+                        <Route path="/game" component={ Game }/>
                         <Route path="/info" component={ GameInfo }/>
                     </div>
                 </Router>
