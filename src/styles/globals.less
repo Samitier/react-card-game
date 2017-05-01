@@ -1,6 +1,3 @@
-@import "~normalize.css";
-@import "~flexboxgrid";
-
 html {
   box-sizing: border-box;
 }
@@ -12,4 +9,38 @@ html {
 body {
     margin: 0;
     overflow: hidden;
+}
+
+a {
+    color: @c1;
+    &:hover { color: @c2; }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 0.4em;
+    }
+}
+
+.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ui-box {
+    padding: 1em;
+    background-color: @c4;
+    border: 5px double @c1;
+}
+
+.main-content {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
 }

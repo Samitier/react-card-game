@@ -54,13 +54,13 @@ module.exports = function(env) {
                 }
             ]
         },
-        devServer: {
-            proxy: {
-                "**": { 
-                    target: "http://localhost:10000",
-                    changeOrigin: true
-                }
-            }
-       }
+    //     devServer: {
+    //         proxy: {
+    //             "**": { 
+    //                 target: "http://localhost:10000",
+    //                 changeOrigin: true
+    //             }
+    //         }
+    //    }
     }
 }
