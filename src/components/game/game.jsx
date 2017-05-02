@@ -6,7 +6,10 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props)
         this.state = { 
-            players: [{ name: "Player Name", number: 1}]
+            players: [
+                { name: "Player One", number: 1 },
+                { name: "Player Two", number: 2 }
+            ]
         }
     }
 

@@ -14,7 +14,7 @@ export default class App extends React.Component {
         return (
             <div className="app-component">
                 <Router>
-                    <div>
+                    <div className="app-route">
                         <Route exact path="/" component={ MainMenu }/>
                         <Route path="/game" component={ Game }/>
                         <Route path="/info" component={ GameInfo }/>

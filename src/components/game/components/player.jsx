@@ -21,14 +21,25 @@ export default class Player extends React.Component {
         })
     }
 
+    getPlayerPosition() {
+        if(this.props.player.number == 1) return "top"
+        else return "bottom"
+    }
+
     render() {
         return (
-            <div className="player-component">
-                <div className="player-name">{ this.props.player.name }</div>
-                { this.state.cards.map( card =>
-                    <Card card={ card } key={ card.number + card.suit }/>
-                )}
-                <Deck deck={ this.state.deck } />
+            <div className={"player-component row " +  this.getPlayerPosition() } >
+                <div className="col-xs-12 player-name">
+                    { this.props.player.name }
+                </div>
+                <div className="card-container">
+                    { this.state.cards.map( card =>
+                        <Card card={ card } key={ card.number + card.suit }/>
+                    )}
+                </div>
+                <div className="deck-container">
+                    <Deck deck={ this.state.deck } />
+                </div>
             </div>
         )
     }

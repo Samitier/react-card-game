@@ -1,0 +1,29 @@
+.player-component {
+
+    position:absolute;
+    margin: 1em;
+
+    &.top {
+        top: 0px;
+        flex-direction: row-reverse;
+        
+        .player-name { 
+            .text-right;
+            order: 1;
+         }
+
+        .deck-container { padding-right: 3em }
+    }
+
+    &.bottom {
+        bottom: 0px;
+
+        .card-container { padding-right: 3em }
+    }
+
+    .card-container, .deck-container { padding: 0 1em }
+
+    .player-name {
+        padding: 1em;
+    }
+}
