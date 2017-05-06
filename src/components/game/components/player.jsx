@@ -14,11 +14,10 @@ export default class Player extends React.Component {
     }
 
     componentDidMount() {
-        let aux = DeckService.drawCards(this.state.deck, 4)
-        this.setState({ 
-            cards: aux.cards,
-            deck: aux.deck
-        })
+        let { cards: firstCard, deck: deckAux } = DeckService.drawCards(this.state.deck, 1),
+            { cards, deck } = DeckService.drawCards(deckAux, 4)
+        this.props.onPlayCard(firstCard[0], this.props.player.number)
+        this.setState({ cards, deck })
     }
 
     getPlayerPosition() {
@@ -34,7 +33,7 @@ export default class Player extends React.Component {
                 </div>
                 <div className="card-container">
                     { this.state.cards.map( card =>
-                        <Card card={ card } key={ card.number + card.suit }/>
+                        <Card card={ card } isDraggable={ true } key={ card.number + card.suit }/>
                     )}
                 </div>
                 <div className="deck-container">

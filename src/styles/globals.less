@@ -32,6 +32,27 @@ ul {
     bottom: 0;
 }
 
+.vertically-aligned {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.horizontally-aligned {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centered {
+    .horizontally-aligned;
+    .vertically-aligned;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.noselect { user-select: none; }
+.pointer { cursor: pointer }
+
 .text-center { text-align: center }
 .text-right { text-align: right }
 

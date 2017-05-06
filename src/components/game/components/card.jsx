@@ -20,9 +20,17 @@ export default class Card extends React.Component {
         return suitIcons[suits.indexOf(suit)] == "<" ? "suit-heart" : ""
     }
 
+    setDraggable(cardElem) {
+        if(!cardElem || !this.props.isDraggable) return
+        $(cardElem).draggable({
+            stack: ".card-component",
+            revert: "invalid"
+        })
+    }
+
     render() {
         return (
-            <div className="card-component">
+            <div className="card-component" ref={ elem => this.setDraggable(elem) }>
                 { this.props.isUpsideDown 
                     ?   <div className="card-back" />
                     :   <div>

@@ -9,6 +9,11 @@ module.exports = function(env) {
             new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor'] }),
             extractCSS,
             new HtmlWebpackPlugin({ template: './src/index.html', hash: true }),
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery",
+                "window.jQuery": "jquery"
+            })
         ]
 
     if (env && env.release) {

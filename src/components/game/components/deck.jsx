@@ -15,7 +15,7 @@ export default class Deck extends React.Component {
         return (
             <div className="deck-component">
                 { this.props.deck.length > 0 &&
-                    <Card card={ this.props.deck[0] } isUpsideDown={ true } />
+                    <Card card={ this.props.deck[0] } isUpsideDown={ true } isDraggable={ false } />
                 }
             </div>
         )
